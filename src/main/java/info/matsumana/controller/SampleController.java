@@ -24,6 +24,8 @@
 
 package info.matsumana.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,11 +37,14 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  * @author matsuzaki
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/sample/api/v1/hello")
 public class SampleController {
+
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     @RequestMapping(method = GET)
     public String index() {
+        logger.debug("Hello World!");
         return "Hello World!";
     }
 }
